@@ -14,7 +14,7 @@ pipeline {
 
         stage ("Git Checkout") {
             steps {
-                git branch: 'main', url: 'git \'https://github.com/Aryachaurasia23/FoodAppZomato.git\''
+                git branch: 'main', url: 'git \'https://github.com/Aryachaurasia23/FoodAppZomato.git''
             }
         }
 
@@ -53,6 +53,7 @@ pipeline {
         }
     }
 }
+
 
 
 
