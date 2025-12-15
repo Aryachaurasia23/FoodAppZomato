@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'arya023/zomato:latest'
-        EKS_CLUSTER_NAME = 'zomato-eks'
+        EKS_CLUSTER_NAME = 'foodapp-eks'
         AWS_REGION = 'us-east-1'
     }
 
