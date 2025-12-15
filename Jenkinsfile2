@@ -26,19 +26,9 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage("Install NPM Dependencies") {
             steps {
-                sh '''
-                cd FoodAppZomato
-                ls -la  # Verify package.json exists
-                if [ -f package.json ]; then
-                    rm -rf node_modules package-lock.json  # Remove old dependencies
-                    npm install  # Install fresh dependencies
-                else
-                    echo "Error: package.json not found in FoodAppZomato!"
-                    exit 1
-                fi
-                '''
+                sh "npm install"
             }
         }
 
