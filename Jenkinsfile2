@@ -32,17 +32,12 @@ pipeline {
             }
         }
 
-        stage('Docker Build & Push') {
+        stage ("Tag & Push to DockerHub") {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
-                        sh ''' 
-                        echo "Building Docker image..."
-                        docker build --no-cache -t $DOCKER_IMAGE -f FoodAppZomato/Dockerfile FoodAppZomato
-
-                        echo "Pushing Docker image to Docker Hub..."
-                        docker push $DOCKER_IMAGE
-                        '''
+                    withDockerRegistry(credentialsId: 'docker') {
+                        sh "docker tag zomato arya023/zomato:latest "
+                        sh "docker push arya023/zomato:latest "
                     }
                 }
             }
