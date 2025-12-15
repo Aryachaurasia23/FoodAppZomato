@@ -35,7 +35,7 @@ pipeline {
                     rm -rf node_modules package-lock.json  # Remove old dependencies
                     npm install  # Install fresh dependencies
                 else
-                    echo "Error: package.json not found in bookmyshow-app!"
+                    echo "Error: package.json not found in FoodAppZomato!"
                     exit 1
                 fi
                 '''
