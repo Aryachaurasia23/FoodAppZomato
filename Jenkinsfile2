@@ -34,6 +34,8 @@ pipeline {
 
         stage ("Build Docker Image") {
             steps {
+                sh "docker stop zomato || true"
+                sh "docker rm zomato || true"
                 sh "docker build -t zomato ."
             }
         }
@@ -63,8 +65,8 @@ pipeline {
                     kubectl config view
 
                     echo "Deploying application to EKS..."
-                    kubectl apply -f deployment.yml
-                    kubectl apply -f service.yml
+                    kubectl apply -f Kubernetes/deployment.yaml
+                    kubectl apply -f Kubernetes/service.yaml
 
                     echo "Verifying deployment..."
                     kubectl get pods
